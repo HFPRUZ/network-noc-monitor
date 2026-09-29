@@ -102,18 +102,6 @@ The screenshots show the token-creation form and confirmation. A token is a secr
 
 ![Grafana confirms that an API key was generated.](docs/images/captura18.png)
 
-## Next step: send metrics
-
-Use the endpoint, authentication details, and code or agent configuration displayed by your Grafana Cloud stack to configure a Prometheus-compatible sender on the device. Keep the token private and verify that the sender can reach Grafana Cloud. Then query the expected metrics in Grafana Explore or a dashboard.
-
-The repository screenshots end at token creation and do not provide a sender configuration, endpoint, dashboard, alert rules, or validation procedure. These values depend on your Grafana stack and the exporter or collector you choose, so do not copy credentials or endpoints from someone else's setup.
-
-## Troubleshooting
-
-- **The device does not appear in Tailscale:** Check that `tailscaled` is running and repeat `sudo tailscale up`. Complete authorization in the browser and confirm the device is approved in the admin console.
-- **Tailscale SSH is unavailable:** Confirm `sudo tailscale set --ssh` succeeded, then review your tailnet's SSH access rules and user permissions.
-- **Grafana shows no data:** Creating a stack and API token does not send metrics. Configure and start a compatible exporter or collector, confirm its destination and token, and inspect its logs for delivery errors.
-- **A token may have been exposed:** Revoke it in Grafana Cloud and create a replacement with the minimum required scopes.
 
 ## Screenshot index
 
