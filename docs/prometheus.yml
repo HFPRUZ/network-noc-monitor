@@ -4,8 +4,8 @@ global:
 remote_write:
   - url: https://prometheus-xxx.grafana.net/api/prom/push
     basic_auth:
-      username: "TU_INSTANCE_ID"
-      password: "TU_TOKEN"
+      username: "<YOUR_GRAFANA_CLOUD_INSTANCE_ID>"
+      password: "<YOUR_GRAFANA_CLOUD_ACCESS_POLICY_TOKEN>"
 
 scrape_configs:
   - job_name: 'node_exporter'
@@ -23,12 +23,10 @@ scrape_configs:
       module: [icmp]
     static_configs:
       - targets:
-        - 192.168.0.1        # router
-        - 192.168.0.50       # HFPC
-        - 192.168.0.49       # portatilF
-        - Redmi-Note-13.local
-        - Mac.local
-        - ipad.local
+        - 192.168.0.1
+        - 192.168.0.50
+        - 192.168.0.49
+        - example-device.local
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
